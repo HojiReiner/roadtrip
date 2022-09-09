@@ -16,9 +16,9 @@ namespace Roadtrip.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<HighlightDto>> GetHighlightAsync(float latPoint, float lngPoint)
+        public async Task<ActionResult<HighlightDto>> GetHighlightAsync(float lat, float lng)
         {
-            var res = await _placesClient.GetHighlightAsync(latPoint, lngPoint);
+            var res = await _placesClient.GetHighlightAsync(lat, lng);
             return Ok(res.results.Where(h => h.rating >= 3.5).First());
         }
 

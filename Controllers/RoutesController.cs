@@ -19,9 +19,9 @@ namespace Roadtrip.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<RouteHighlightDto>> GetRouteAsync(float latStart, float lngStart, float latEnd, float lngEnd)
+        public async Task<ActionResult<RouteHighlightDto>> GetRouteAsync(float lat0, float lng0, float lat1, float lng1)
         {
-            var res = await _routesClient.GetRouteAsync(latStart, lngStart, latEnd, lngEnd);
+            var res = await _routesClient.GetRouteAsync(lat0, lng0, lat1, lng1);
 
             RouteHighlightDto routeHighlight = new(new List<RoutesResponseDto>());
             foreach(var route in res.routes)

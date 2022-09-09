@@ -3,6 +3,14 @@ using Roadtrip.Clients;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Get an API Key
+do
+{
+    Console.Write("Enter your Google API key:");
+    GMapsHttpClient.apiKey = Console.ReadLine();
+
+} while (GMapsHttpClient.apiKey == null);
+
 // Add services to the container.
 builder.Services.AddControllers();
 
